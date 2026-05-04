@@ -34,4 +34,28 @@ func main(){
 	} else {
 		fmt.Printf("Invalid name\n")
 	}
+
+	for name, age := range myMap2 {
+		fmt.Printf("Name: %v, Age: %v\n", name, age)
+	}
+
+	for i, v := range intArr{
+		fmt.Printf("The index is %v and the value is %v\n", i, v)
+	}
+
+	var i int = 0
+	for{
+		if i>=10 {
+			break
+		}
+		fmt.Println(i)
+		i = i+1
+	}
+
+	for i:=0; i<10; i++{
+		if i%2 == 0 {
+			continue
+		}
+		fmt.Printf("%v is odd\n", i)
+	}
 }
