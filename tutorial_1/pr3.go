@@ -1,6 +1,8 @@
 package main
-import "fmt"
-import "errors"
+import (
+	"fmt"
+	"errors"
+)
 
 func main(){
 	var printValue string = "Hello, World! Khushi here"
@@ -11,6 +13,8 @@ func main(){
 	result, remainder, err := intDivision(numerator, denominator)
 	if err != nil {
 		fmt.Println("Error:", err)
+	} else if remainder == 0 {
+		fmt.Printf("The result of %d divided by %d is %d with no remainder\n", numerator, denominator, result)
 	} else {
 		fmt.Printf("The result of %d divided by %d is %d with a remainder of %d\n", numerator, denominator, result, remainder)
 	}
