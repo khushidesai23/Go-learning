@@ -23,7 +23,7 @@ func main(){
 func dbCall(i int){
 	var delay float32 = 2000
 	time.Sleep(time.Duration(delay)*time.Millisecond)
-	fmt.Printf("The result from the database is:", dbData[i])
+	fmt.Printf("The result from the database is: %s\n", dbData[i])
 	results = append(results, dbData[i])
 	wg.Done()
 }
