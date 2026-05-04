@@ -16,4 +16,22 @@ func main(){
 
 	var intSlice3 []int32 = make([]int32, 3, 8)
 	fmt.Println(intSlice3)
+
+	var myMap map[string]uint8 = make(map[string]uint8)
+	fmt.Println(myMap)
+
+	var myMap2 = map[string]uint8{
+		"Khushi": 23,
+		"Priyam": 27,
+	}
+	fmt.Println(myMap2["Priyam"])
+	fmt.Println(myMap2["Vismay"])
+
+	var age, ok = myMap2["Vismay"]
+	delete(myMap2, "Sarah")
+	if ok {
+		fmt.Printf("The age is %v\n", age)
+	} else {
+		fmt.Printf("Invalid name\n")
+	}
 }
