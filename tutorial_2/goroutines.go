@@ -5,7 +5,8 @@ import (
 	"sync"
 )
 
-var m = sync.Mutex{}
+//var m = sync.Mutex{}
+var m = sync.RWMutex{}
 var wg = sync.WaitGroup{}
 var dbData = []string{"data1", "data2", "data3", "data4", "data5"}
 var results = []string{}
@@ -24,9 +25,19 @@ func main(){
 func dbCall(i int){
 	var delay float32 = 2000
 	time.Sleep(time.Duration(delay)*time.Millisecond)
-	fmt.Printf("The result from the database is: %s\n", dbData[i])
-	m.Lock()
-	results = append(results, dbData[i])
-	m.Unlock()
+	save(dbData[i])
+	log()
 	wg.Done()
+}
+
+func save(result string){
+	m.Lock()
+	results = append(results, result)
+	m.Unlock()
+}
+
+func log(){
+	m.RLock()
+	fmt.Printf("The current results are: %v\n", results)
+	m.RUnlock()
 }
