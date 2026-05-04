@@ -19,7 +19,11 @@ func (e electricEngine) milesLeft() uint8 {
 	return e.kwh*e.mpkwh
 }
 
-func canMakeIt (e gasEngine, miles uint8){
+type engine interface{
+	milesLeft() uint8
+}
+
+func canMakeIt (e engine, miles uint8){
 	if miles<=e.milesLeft(){
 		fmt.Printf("You can make it! You have %v miles left in the tank\n", e.milesLeft())
 	}else{
@@ -28,6 +32,6 @@ func canMakeIt (e gasEngine, miles uint8){
 }
 
 func main(){
-	var myEngine gasEngine = gasEngine{mpg: 25, gallons: 15}
-	fmt.Printf("Total miles left in tank: %v", myEngine.milesLeft())
+	var myEngine electricEngine = electricEngine{25, 15}
+	canMakeIt(myEngine, 50)
 }
