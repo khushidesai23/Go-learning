@@ -9,14 +9,25 @@ func main(){
 	printMe(printValue)
 
 	numerator := 11
-	denominator := 0
+	denominator := 2
 	result, remainder, err := intDivision(numerator, denominator)
-	if err != nil {
+
+	switch{
+	case err != nil:
 		fmt.Println("Error:", err)
-	} else if remainder == 0 {
-		fmt.Printf("The result of %d divided by %d is %d with no remainder\n", numerator, denominator, result)
-	} else {
-		fmt.Printf("The result of %d divided by %d is %d with a remainder of %d\n", numerator, denominator, result, remainder)
+	case remainder==0:
+		fmt.Printf("The result of the integer devision is %v\n", result)
+	default:
+		fmt.Printf("The result of the integer devision is %v with a remainder of %v\n", result, remainder)
+	}
+
+	switch remainder{
+	case 0:
+		fmt.Printf("The devision was exact")
+	case 1,2:
+		fmt.Printf("The devision was close")
+	default:
+		fmt.Printf("The devision was not close")
 	}
 }
 
