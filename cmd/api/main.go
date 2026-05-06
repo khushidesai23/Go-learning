@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi"
-	"github.com/khushidesai23/Go-learning/tree/feature/building_api/internal/handlers"
+	"github.com/khushidesai23/Go-learning/internal/handlers"
 	log "github.com/sirupsen/logrus"
 )
 
